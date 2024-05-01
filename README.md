@@ -1,3 +1,4 @@
+```
 How to use Service controller v1
   -file string
     	File containing the service name (default "service_control.txt")
@@ -13,4 +14,4 @@ How to use Service controller v2
     	File containing the service name (default "service_control.txt")
   -port int
     	Custom port to run the HTTP server (default 8088)
-     
+```     
