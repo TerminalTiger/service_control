@@ -1,5 +1,5 @@
 [Unit]
-Description=service stopper
+Description=service control
 Wants=network-online.target
 After=network-online.target
 
@@ -11,10 +11,10 @@ User=root
 Group=root
 Type=simple
 RestartSec=5s
-#ExecStart=/usr/local/bin/service_stopper -file /usr/local/bin/conf.d/service_control.txt -port 8088
-ExecStart=/usr/local/bin/service_stopper -beforestart /usr/local/bin/beforestart.sh -beforestop /usr/local/bin/beforestop.sh -file /usr/local/bin/conf.d/service_control.txt -port 8088
+#ExecStart=/usr/local/bin/service_control_amd64 -file /usr/local/bin/conf.d/service_control.txt -port 8088
+ExecStart=/usr/local/bin/service_control_amd64 -beforestart /usr/local/bin/beforestart.sh -beforestop /usr/local/bin/beforestop.sh -file /usr/local/bin/conf.d/service_control.txt -port 8088
 
-SyslogIdentifier=service_stopper
+SyslogIdentifier=service_control
 Restart=always
 
 [Install]
