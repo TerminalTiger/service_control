@@ -1,0 +1,22 @@
+[Unit]
+Description=service stopper
+Wants=network-online.target
+After=network-online.target
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+User=root
+Group=root
+Type=simple
+RestartSec=5s
+#ExecStart=/usr/local/bin/service_stopper -file /usr/local/bin/conf.d/service_control.txt -port 8088
+ExecStart=/usr/local/bin/stopertest -beforestart /usr/local/bin/beforestart.sh -beforestop /usr/local/bin/beforestop.sh -file /usr/local/bin/conf.d/service_control.txt -port 8088
+
+SyslogIdentifier=service_stopper
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
